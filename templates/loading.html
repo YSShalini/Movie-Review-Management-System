@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000000;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-top-color: #ffffff;
+            animation: spin 1s infinite linear;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .loading-image {
+            width: 300px;
+            height: 230px;
+        }
+        .loading-text {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <img src="{{ url_for('static', filename='cartoon.jpg') }}" class="loading-image" alt="Loading">
+    <div class="loading-container">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading...</div>
+    </div>
+    <script>
+     setTimeout(function() {
+            window.location.href = "{{ url_for('demo') }}";
+        }, 2000);
+    </script>
+</body>
+</html>
